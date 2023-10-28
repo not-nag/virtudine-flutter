@@ -5,12 +5,13 @@ PODS:
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 10.16.0)
   - firebase_core (2.20.0):
-    - Firebase/CoreOnly (= 10.16.0)
-    - Flutter
+    - Firebase/CoreOnly (~> 10.16.0)
+    - FlutterMacOS
   - firebase_database (10.3.2):
-    - Firebase/Database (= 10.16.0)
+    - Firebase/CoreOnly (~> 10.16.0)
+    - Firebase/Database (~> 10.16.0)
     - firebase_core
-    - Flutter
+    - FlutterMacOS
   - FirebaseAppCheckInterop (10.16.0)
   - FirebaseCore (10.16.0):
     - FirebaseCoreInternal (~> 10.0)
@@ -22,7 +23,7 @@ PODS:
     - FirebaseAppCheckInterop (~> 10.16)
     - FirebaseCore (~> 10.0)
     - leveldb-library (~> 1.22)
-  - Flutter (1.0.0)
+  - FlutterMacOS (1.0.0)
   - GoogleUtilities/Environment (7.11.5):
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/Logger (7.11.5):
@@ -35,10 +36,10 @@ PODS:
   - PromisesObjC (2.3.1)
 
 DEPENDENCIES:
-  - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
-  - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
-  - Flutter (from `Flutter`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
+  - firebase_database (from `Flutter/ephemeral/.symlinks/plugins/firebase_database/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -53,28 +54,28 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   firebase_core:
-    :path: ".symlinks/plugins/firebase_core/ios"
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_core/macos
   firebase_database:
-    :path: ".symlinks/plugins/firebase_database/ios"
-  Flutter:
-    :path: Flutter
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_database/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
   path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+    :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
 
 SPEC CHECKSUMS:
   Firebase: 25899099b77d255a636e3579c3d9dce10ec150d5
-  firebase_core: 2e0e89436a00b664a23bebb08859e5fede7215e9
-  firebase_database: 861128b1c487c47fc72fb13c857ced94482de746
+  firebase_core: 844b9a36afc5874a395699929626d594a448183d
+  firebase_database: b91b1dc57dfa7c07bc63807104f7238d984d0cfd
   FirebaseAppCheckInterop: 82358cff9f33452dd44259e88eea5e562500b1cb
   FirebaseCore: 65a801af84cca84361ef9eac3fd868656968a53b
   FirebaseCoreInternal: 26233f705cc4531236818a07ac84d20c333e505a
   FirebaseDatabase: c30143ba53120307f5c37d9ecb9acd780a1f7c55
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
 
-PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
 
 COCOAPODS: 1.13.0

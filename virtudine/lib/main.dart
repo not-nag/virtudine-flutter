@@ -2,14 +2,62 @@ import 'package:flutter/material.dart';
 import 'package:virtudine/components/loading_screen_emoji.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:virtudine/restaurant_options.dart';
+import 'firebase_options.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'dart:developer' as developer;
 
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(
-      backgroundColor: Color(0xFFFF8600),
-      body: SafeArea(
-        child: Emojis(),
+Future<Map<dynamic, dynamic>?> fetchDataFromFirebase() async {
+  final ref = FirebaseDatabase.instance.ref();
+  final snapshot = await ref.child('cafes').get();
+  if (snapshot.exists) {
+    final data = snapshot.value as Map<dynamic, dynamic>;
+    developer.log(data.toString(), name: 'my.app.category');
+    return data;
+  } else {
+    return null;
+  }
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color(0xFFFF8600),
+        body: SafeArea(
+          child: Emojis(),
+        ),
       ),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
+
+  await Future.delayed(const Duration(seconds: 3));
+
+  runApp(MaterialApp(
+    home: FutureBuilder(
+      future: fetchDataFromFirebase(),
+      builder: (context, AsyncSnapshot<Map<dynamic, dynamic>?> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          final Map<dynamic, dynamic> value =
+              snapshot.data as Map<dynamic, dynamic>;
+          return RestaurantOptions(
+            data: value,
+          );
+        } else {
+          return const Scaffold(
+            backgroundColor: Color(0xFFFF8600),
+            body: SafeArea(
+              child: Emojis(),
+            ),
+          );
+        }
+      },
     ),
     debugShowCheckedModeBanner: false,
   ));

@@ -20,7 +20,7 @@ class LoadingScreenEmoji extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: Text(
-      emojiGrid[one][two],
+      emojiGrid[one][two].toString(),
       style: const TextStyle(fontSize: 35),
     ));
   }

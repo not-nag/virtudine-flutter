@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "692766555111",
+    "firebase_url": "https://virtudine-53fc9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "virtudine-53fc9",
+    "storage_bucket": "virtudine-53fc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692766555111:android:286922691ee64ffa0cdb42",
+        "android_client_info": {
+          "package_name": "com.example.virtudine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692766555111-ulk0ed7nfeaab04n7bdtr9nr85d9q0e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiw0UyjgCSPeuNZGrFY5IFgi3TPRQspmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692766555111-ulk0ed7nfeaab04n7bdtr9nr85d9q0e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
