@@ -6,17 +6,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:virtudine/restaurant_options.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'dart:developer' as developer;
 
-Future<Map<dynamic, dynamic>?> fetchDataFromFirebase() async {
+Future fetchDataFromFirebase() async {
   final ref = FirebaseDatabase.instance.ref();
   final snapshot = await ref.child('cafes').get();
   if (snapshot.exists) {
-    final data = snapshot.value as Map<dynamic, dynamic>;
-    developer.log(data.toString(), name: 'my.app.category');
-    return data;
+    print(snapshot.value);
+    return snapshot.value;
   } else {
-    return null;
+    print('No data available.');
   }
 }
 
@@ -42,13 +40,12 @@ void main() async {
   runApp(MaterialApp(
     home: FutureBuilder(
       future: fetchDataFromFirebase(),
-      builder: (context, AsyncSnapshot<Map<dynamic, dynamic>?> snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          final Map<dynamic, dynamic> value =
-              snapshot.data as Map<dynamic, dynamic>;
-          return RestaurantOptions(
-            data: value,
-          );
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          print("here");
+          final value = snapshot.data;
+          print(value.runtimeType);
+          return RestaurantOptions(data: value);
         } else {
           return const Scaffold(
             backgroundColor: Color(0xFFFF8600),

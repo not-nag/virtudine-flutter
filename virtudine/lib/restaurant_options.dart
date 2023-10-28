@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RestaurantOptions extends StatelessWidget {
-  final Map<dynamic, dynamic> data;
+  final Map<Object?, Object?> data;
 
   const RestaurantOptions({Key? key, required this.data}) : super(key: key);
 
