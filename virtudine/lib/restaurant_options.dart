@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:virtudine/components/list_view.dart';
 
 class RestaurantOptions extends StatelessWidget {
   final Map<Object?, Object?> data;
@@ -7,11 +8,21 @@ class RestaurantOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(data.toString());
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: const Color(0xFFFF8600),
       body: SafeArea(
-        child: Text('I am cafe'),
-      ),
+          child: ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          String userId = data.keys.elementAt(index).toString();
+          String name = data[userId].toString();
+
+          return Restaurants(
+            name: name,
+            userId: userId,
+          );
+        },
+      )),
     );
   }
 }
