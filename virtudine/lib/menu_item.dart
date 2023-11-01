@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:virtudine/components/loading.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -89,8 +87,13 @@ class MenuList extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: InkWell(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ItemShow()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ItemShow(
+                  item: item, ingredients: ingredients, url: downloadURL),
+            ),
+          );
         },
         child: Container(
           decoration: BoxDecoration(
