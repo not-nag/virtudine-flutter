@@ -65,7 +65,7 @@ class TruncatedTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String truncatedText = text.length > maxCharacters
-        ? text.substring(0, maxCharacters) + "..."
+        ? "${text.substring(0, maxCharacters)}..."
         : text;
 
     return Text(

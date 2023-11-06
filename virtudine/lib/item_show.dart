@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:model_viewer_plus/model_viewer_plus.dart';
+import 'package:virtudine/components/loading.dart' as LoadingIndicator;
 
 class ItemShow extends StatelessWidget {
   final String item;
@@ -32,8 +34,55 @@ class ItemShow extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                border: Border.all(
+                    color: const Color.fromARGB(255, 0, 0, 0), width: 2.0),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      blurRadius: 5,
+                      offset: Offset(0, 3))
+                ],
+              ),
+              margin: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    width: double.infinity,
+                    height: 350,
+                    child: Image.network(
+                      showURL,
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent? loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return const Center(child: LoadingIndicator.Loading());
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 70,
+                    child: ModelViewer(
+                      backgroundColor: Colors.black,
+                      src: url,
+                      alt: item,
+                      ar: true,
+                      arModes: const ['scene-viewer', 'webxr', 'quick-look'],
+                      autoRotate: true,
+                      iosSrc: url,
+                      disableZoom: true,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Container(
               margin: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(

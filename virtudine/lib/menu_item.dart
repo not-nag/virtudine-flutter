@@ -94,7 +94,7 @@ class _MenuItemState extends State<MenuItem> {
                               color: Colors.black,
                               fontWeight: FontWeight.w700),
                           decoration: InputDecoration(
-                            hintText: 'Enter Restaurant name',
+                            hintText: 'Search Item here',
                             prefixIcon: const Icon(
                               Icons.search,
                               color: Colors.black,
@@ -288,7 +288,7 @@ class TruncatedTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String truncatedText = text.length > maxCharacters
-        ? text.substring(0, maxCharacters) + "..."
+        ? "${text.substring(0, maxCharacters)}..."
         : text;
 
     return Text(
