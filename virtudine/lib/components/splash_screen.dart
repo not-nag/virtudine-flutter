@@ -72,7 +72,7 @@ class Emojis extends StatelessWidget {
                   child: Text(
                     'VirtuDine',
                     style: GoogleFonts.poppins(
-                      fontSize: 50,
+                      fontSize: 45,
                       fontWeight: FontWeight.w800,
                       letterSpacing: 2.0,
                     ),

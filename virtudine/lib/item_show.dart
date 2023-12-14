@@ -81,6 +81,7 @@ class ItemShow extends StatelessWidget {
                       autoRotate: true,
                       iosSrc: url,
                       disableZoom: true,
+                      scale: '0.2',
                     ),
                   ),
                 ],
