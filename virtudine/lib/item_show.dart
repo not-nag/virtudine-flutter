@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
+// ignore: library_prefixes
 import 'package:virtudine/components/loading.dart' as LoadingIndicator;
 
 class ItemShow extends StatelessWidget {
@@ -25,16 +26,17 @@ class ItemShow extends StatelessWidget {
         title: Text(
           'Item view',
           style: GoogleFonts.poppins(
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
-            letterSpacing: 2.0,
-          ),
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 2.0,
+              color: Colors.white),
         ),
         backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               decoration: BoxDecoration(
@@ -55,7 +57,7 @@ class ItemShow extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(10.0),
                     width: double.infinity,
-                    height: 350,
+                    height: 300,
                     child: Image.network(
                       showURL,
                       loadingBuilder: (BuildContext context, Widget child,
@@ -65,6 +67,7 @@ class ItemShow extends StatelessWidget {
                         }
                         return const Center(child: LoadingIndicator.Loading());
                       },
+                      fit: BoxFit.contain,
                     ),
                   ),
                   SizedBox(

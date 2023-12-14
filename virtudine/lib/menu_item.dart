@@ -64,12 +64,13 @@ class _MenuItemState extends State<MenuItem> {
                 title: Text(
                   'Menu',
                   style: GoogleFonts.poppins(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 2.0,
-                  ),
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 2.0,
+                      color: Colors.white),
                 ),
                 backgroundColor: Colors.black,
+                iconTheme: const IconThemeData(color: Colors.white),
               ),
               body: SafeArea(
                 child: Column(
